@@ -1,0 +1,742 @@
+/* =============================================
+   NEXUM BUSINESS SAC - Main Stylesheet
+   Animaciones, SEO helpers, componentes globales
+   ============================================= */
+
+/* ── Variables globales ── */
+:root {
+  --anim-duration-fast: 200ms;
+  --anim-duration-base: 400ms;
+  --anim-duration-slow: 700ms;
+  --anim-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --anim-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --nav-height: 80px;
+}
+
+/* ── Reset & base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Page load overlay ── */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--loader-bg, #0F0F14);
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#page-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: loaderPulse 1.2s ease-in-out infinite;
+}
+
+.loader-bar {
+  width: 200px;
+  height: 2px;
+  background: rgba(220, 184, 255, 0.15);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: #dcb8ff;
+  border-radius: 9999px;
+  animation: loaderProgress 1.2s ease-in-out forwards;
+}
+
+@keyframes loaderProgress {
+  0%   { width: 0%; }
+  60%  { width: 80%; }
+  100% { width: 100%; }
+}
+
+@keyframes loaderPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+/* ── Animaciones de entrada de página ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(147, 63, 232, 0.3); }
+  50%       { box-shadow: 0 0 40px rgba(147, 63, 232, 0.6), 0 0 80px rgba(147, 63, 232, 0.2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Clases de animación de entrada (page entry) ── */
+.page-enter {
+  animation: fadeIn var(--anim-duration-base) var(--anim-easing) both;
+}
+
+/* ── Scroll reveal - estado inicial ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s var(--anim-easing), transform 0.7s var(--anim-easing);
+}
+
+.reveal.reveal--left {
+  transform: translateX(-40px);
+}
+
+.reveal.reveal--right {
+  transform: translateX(40px);
+}
+
+.reveal.reveal--scale {
+  transform: scale(0.9);
+}
+
+.reveal.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Delay helpers para reveal en cascada */
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-5 { transition-delay: 500ms; }
+.reveal-delay-6 { transition-delay: 600ms; }
+
+/* ── Navegación ── */
+/* Clase aplicada por JS a todos los nav links del desktop */
+.nav-link {
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  border-radius: 9999px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              left   0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-link.active {
+  color: currentColor;
+  font-weight: 600;
+}
+
+/* Navbar scroll behavior */
+.navbar--scrolled {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ── Botones ── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--anim-duration-fast) ease,
+              box-shadow var(--anim-duration-fast) ease;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  opacity: 0;
+  transition: opacity var(--anim-duration-fast) ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(147, 63, 232, 0.4);
+}
+
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:active { transform: translateY(0) scale(0.97); }
+
+/* ── Cards con hover ── */
+.card-hover {
+  transition: transform var(--anim-duration-base) var(--anim-easing),
+              box-shadow var(--anim-duration-base) ease,
+              border-color var(--anim-duration-base) ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Menú mobile ── */
+/* position:fixed saca al menú del flujo del documento (evita el gap bajo el header) */
+#mobile-menu {
+  position: fixed;
+  top: 80px; /* altura del nav h-20 */
+  left: 0;
+  right: 0;
+  z-index: 49;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease,
+              transform 0.25s var(--anim-easing),
+              visibility 0s linear 0.25s;
+}
+
+#mobile-menu.open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 0.25s ease,
+              transform 0.25s var(--anim-easing),
+              visibility 0s linear 0s;
+}
+
+/* Cursor pointer en el toggle (es un div, no un button) */
+#mobile-menu-toggle {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Desktop: nunca visible aunque JS lo active */
+@media (min-width: 768px) {
+  #mobile-menu { visibility: hidden !important; pointer-events: none !important; }
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 9999px;
+  transition: transform var(--anim-duration-base) var(--anim-easing),
+              opacity var(--anim-duration-fast) ease;
+  transform-origin: center;
+}
+
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ── Switcher de tema ── */
+#theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(220, 184, 255, 0.2);
+  background: rgba(28, 28, 36, 0.6);
+  cursor: pointer;
+  transition: border-color var(--anim-duration-fast) ease,
+              background var(--anim-duration-fast) ease,
+              transform var(--anim-duration-fast) ease;
+  backdrop-filter: blur(8px);
+}
+
+#theme-toggle:hover {
+  border-color: rgba(220, 184, 255, 0.6);
+  transform: scale(1.1);
+}
+
+#theme-toggle .icon-dark,
+#theme-toggle .icon-light {
+  transition: opacity var(--anim-duration-fast) ease,
+              transform var(--anim-duration-fast) ease;
+}
+
+/* ── Efectos flotantes (decorativos) ── */
+.ambient-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.ambient-float-slow {
+  animation: float 9s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+/* ── Glow en CTAs ── */
+.glow-cta {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ── Shimmer loading skeleton ── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.05) 25%,
+    rgba(255,255,255,0.1) 50%,
+    rgba(255,255,255,0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Hero title animation ── */
+.hero-title {
+  animation: fadeInUp 0.8s var(--anim-easing) 0.2s both;
+}
+
+.hero-subtitle {
+  animation: fadeInUp 0.8s var(--anim-easing) 0.4s both;
+}
+
+.hero-cta {
+  animation: fadeInUp 0.8s var(--anim-easing) 0.6s both;
+}
+
+.hero-image {
+  animation: scaleIn 1s var(--anim-easing) 0.3s both;
+}
+
+/* ── Navbar entry ── */
+header, nav {
+  animation: fadeInDown 0.6s var(--anim-easing) both;
+}
+
+/* ── Footer ── */
+footer {
+  animation: fadeIn 0.6s ease 0.2s both;
+}
+
+/* ── Contador animado ── */
+.counter {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Tooltips ── */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(28, 28, 36, 0.95);
+  color: #e4e1e9;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--anim-duration-fast) ease,
+              transform var(--anim-duration-fast) ease;
+  z-index: 100;
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Image lazy load fade ── */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* ── Scroll progress bar ── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #8229d7, #dcb8ff);
+  z-index: 99999;
+  transition: width 0.1s linear;
+  border-radius: 0 9999px 9999px 0;
+}
+
+/* ── Responsive tweaks ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ── Light mode overrides para #theme-toggle ── */
+html.light #theme-toggle {
+  background: rgba(240, 236, 244, 0.8);
+  border-color: rgba(130, 41, 215, 0.2);
+}
+
+html.light #theme-toggle:hover {
+  border-color: rgba(130, 41, 215, 0.5);
+}
+
+/* ── Cookie/Back-to-top button ── */
+#back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  background: rgba(130, 41, 215, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(220, 184, 255, 0.3);
+  color: white;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  background: #8229d7;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(130, 41, 215, 0.5);
+}
+
+/* ── Theme Widget flotante ── */
+#theme-widget {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 9999px;
+  background: rgba(30, 30, 40, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+html.light #theme-widget {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+#theme-widget button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: rgba(220,184,255,0.7);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: Inter, sans-serif;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+html.light #theme-widget button {
+  color: rgba(80,60,120,0.7);
+}
+
+#theme-widget button:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+html.light #theme-widget button:hover {
+  background: rgba(130,41,215,0.08);
+  color: #8229d7;
+}
+
+#theme-widget button.active {
+  background: rgba(130,41,215,0.85);
+  color: #fff;
+}
+
+html.light #theme-widget button.active {
+  background: #8229d7;
+  color: #fff;
+}
+
+#theme-widget button span {
+  display: none;
+}
+
+#theme-widget button.active span {
+  display: inline;
+}
+
+/* ── Light mode: visibilidad de cards ── */
+/*
+  En light, los fondos de card (surface-container-lowest = #fff, surface-container = #f4f4f6)
+  son casi iguales al fondo de página (#fff), haciéndolas invisibles.
+  Se añade borde sutil + sombra para definir la elevación.
+*/
+html.light [class*="border-surface-container"],
+html.light [class*="border-glass-border"],
+html.light [class*="border-outline-variant"] {
+  border-color: rgba(0, 0, 0, 0.09) !important;
+}
+
+html.light [class*="rounded-"][class*="border"][class*="bg-surface-container"],
+html.light [class*="rounded-"][class*="border"][class*="bg-white"],
+html.light [class*="rounded-"][class*="border"][class*="bg-surface"] {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Cards con shadow-sm ya definidas (como en light/servicios) */
+html.light [class*="shadow-sm"][class*="rounded"] {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light [class*="shadow-md"][class*="rounded"] {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Fondo de card ligeramente off-white para diferenciarse del body #fff */
+html.light [class*="bg-surface-container-lowest"] {
+  background-color: #fafafa !important;
+}
+
+html.light [class*="bg-surface-container"]:not([class*="highest"]):not([class*="low"]) {
+  background-color: #f3f2f7 !important;
+}
+
+/* ── Responsive: fixes generales ── */
+
+/* Theme widget en mobile: más compacto */
+@media (max-width: 640px) {
+  #theme-widget {
+    bottom: 16px;
+    left: 16px;
+    padding: 3px;
+  }
+  #theme-widget button {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  /* Back-to-top no se superponga al widget */
+  #back-to-top {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* Scroll progress visible en mobile */
+#scroll-progress {
+  height: 2px;
+}
+
+/* Imágenes: nunca desborden en móvil */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Texto hero en móvil no desborde */
+@media (max-width: 640px) {
+  h1 { word-break: break-word; }
+  .hero-title { font-size: clamp(1.75rem, 6vw, 3rem); }
+}
+
+/* Nav: altura consistente en todos los breakpoints */
+header .flex,
+nav .flex {
+  min-height: 0;
+}
+
+/* Fix: mobile-menu no tape el contenido de la página en desktop */
+@media (min-width: 768px) {
+  #mobile-menu-toggle { display: none !important; }
+}
+
+/* ── Light mode: full color inversion for dark-config classes ── */
+/* When dark-page HTML is shown with html.light, these overrides flip all colors */
+
+html.light { --loader-bg: #fafafa; }
+
+/* Backgrounds */
+html.light .bg-background,
+html.light .bg-surface,
+html.light .bg-surface-bright { background-color: #ffffff !important; }
+html.light .bg-surface-dim    { background-color: #e0e0e4 !important; }
+html.light .bg-surface-variant { background-color: #e4e1e9 !important; }
+html.light .bg-surface-container-lowest { background-color: #ffffff !important; }
+html.light .bg-surface-container-low    { background-color: #f8f8fa !important; }
+html.light .bg-surface-container        { background-color: #f4f4f6 !important; }
+html.light .bg-surface-container-high   { background-color: #edecf0 !important; }
+html.light .bg-surface-container-highest{ background-color: #e8e8ec !important; }
+html.light .bg-glass-surface            { background-color: rgba(255,255,255,0.85) !important; }
+
+/* Primary / accent */
+html.light .bg-primary       { background-color: #791ace !important; }
+html.light .bg-primary-fixed { background-color: #efdbff !important; }
+html.light .bg-inverse-primary { background-color: #dcb8ff !important; }
+
+/* Text colors */
+html.light .text-text-primary    { color: #1b1b20 !important; }
+html.light .text-text-secondary  { color: rgba(27,27,32,0.78) !important; }
+html.light .text-text-muted,
+html.light .text-muted           { color: rgba(27,27,32,0.50) !important; }
+html.light .text-on-surface      { color: #1b1b20 !important; }
+html.light .text-on-surface-variant { color: #4c4354 !important; }
+html.light .text-on-background   { color: #1b1b20 !important; }
+html.light .text-primary         { color: #791ace !important; }
+html.light .text-secondary       { color: #006688 !important; }
+html.light .text-on-primary      { color: #ffffff !important; }
+html.light .text-inverse-surface { color: #f3eff7 !important; }
+
+/* Borders */
+html.light .border-glass-border  { border-color: rgba(0,0,0,0.09) !important; }
+html.light .border-outline-variant { border-color: #cfc2d6 !important; }
+html.light .border-outline       { border-color: #7e7386 !important; }
+
+/* Hardcoded dark hex backgrounds → light equivalents */
+html.light body { background-color: #ffffff !important; }
+html.light [class*="0F0F14"] { background-color: #f8f8fa !important; }
+html.light [class*="1C1C24"] { background-color: #f0f0f5 !important; }
+
+/* Gradient text: override transparent clip to use dark primary */
+html.light .from-primary { --tw-gradient-from: #791ace !important; }
+html.light .to-secondary { --tw-gradient-to: #006688 !important; }
+
+/* Scroll progress */
+html.light #scroll-progress { background: linear-gradient(90deg,#791ace,#006688); }
+
+/* primary-container in light = solid purple */
+html.light .bg-primary-container { background-color: #791ace !important; }
+html.light .hover\:bg-primary-container:hover { background-color: #6a15c0 !important; }
+html.light .hover\:bg-inverse-primary:hover { background-color: #6a15c0 !important; }
+html.light .text-on-primary-container { color: #ffffff !important; }
+
+/* border-secondary / hover:bg-secondary/10 in light */
+html.light .border-secondary { border-color: #006688 !important; }
+html.light .hover\:bg-secondary\/10:hover { background-color: rgba(0,102,136,0.1) !important; }
+
+/* Contact page: .glass-panel dark inline style → light */
+html.light .glass-panel {
+  background-color: rgba(255,255,255,0.96) !important;
+  border-color: rgba(0,0,0,0.09) !important;
+}
+
+/* Contact page: .input-glass dark inline style → light */
+html.light .input-glass {
+  background-color: #f4f4f8 !important;
+  border-color: rgba(0,0,0,0.15) !important;
+  color: #1b1b20 !important;
+}
+
+html.light .input-glass::placeholder { color: rgba(27,27,32,0.4); }
+
+html.light .input-glass:focus {
+  border-color: #791ace !important;
+  box-shadow: 0 0 0 2px rgba(121,26,206,0.15) !important;
+}
+
+/* cloud.html: mix-blend-screen washes image on white bg → normal in light */
+html.light .mix-blend-screen { mix-blend-mode: normal !important; }
+
+/* cloud.html: roadmap vertical line (bg-glass-border invisible on white) */
+html.light .bg-glass-border { background-color: rgba(0,0,0,0.18) !important; }

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png"/>
+    <script src="../assets/js/theme.js"></script>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Implementación, personalización y soporte de plataformas Moodle para instituciones educativas y corporativas. Plugins a medida e integraciones empresariales."/>
+    <meta name="keywords" content="Moodle, LMS, e-learning, implementación Moodle, plugins Moodle, formación corporativa, Lima"/>
+    <meta name="author" content="Nexum Business SAC"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="theme-color" content="#0F0F14"/>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://nexumbusiness.com/dark/moodle.html"/>
+    <meta property="og:title" content="Soluciones Moodle | Nexum Business SAC"/>
+    <meta property="og:description" content="Implementación, personalización y soporte de plataformas Moodle para instituciones educativas y corporativas. Plugins a medida e integraciones empresariales."/>
+    <meta property="og:image" content="../../assets/images/screenshot_dark_moodle.webp"/>
+    <meta property="og:locale" content="es_PE"/>
+    <meta property="og:site_name" content="Nexum Business SAC"/>
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:url" content="https://nexumbusiness.com/dark/moodle.html"/>
+    <meta name="twitter:title" content="Soluciones Moodle | Nexum Business SAC"/>
+    <meta name="twitter:description" content="Implementación, personalización y soporte de plataformas Moodle para instituciones educativas y corporativas. Plugins a medida e integraciones empresariales."/>
+    <meta name="twitter:image" content="../../assets/images/screenshot_dark_moodle.webp"/>
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nexumbusiness.com/dark/moodle.html"/>
+    
+    <!-- Alternate theme -->
+    <link rel="alternate" href="../light/moodle.html" hreflang="es"/>
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Nexum Business SAC",
+      "url": "https://nexumbusiness.com",
+      "logo": "https://nexumbusiness.com/assets/images/logo.png",
+      "description": "Soluciones cloud, Moodle y desarrollo de software empresarial en Lima, Perú.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lima",
+        "addressCountry": "PE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["Spanish"]
+      },
+      "sameAs": [
+        "https://linkedin.com/company/nexum-business-sac"
+      ]
+    }
+    </script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Soluciones Moodle | Nexum Business SAC</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#c7c5d0",
+                      "glass-border": "rgba(245, 245, 247, 0.12)",
+                      "surface-tint": "#dcb8ff",
+                      "on-primary-fixed-variant": "#6700b6",
+                      "error-container": "#93000a",
+                      "on-tertiary-fixed": "#1b1b23",
+                      "primary": "#dcb8ff",
+                      "glass-surface": "rgba(28, 28, 36, 0.65)",
+                      "on-primary-fixed": "#2b0052",
+                      "surface-container-high": "#2a292f",
+                      "surface-container-low": "#1b1b20",
+                      "tertiary-fixed": "#e4e1ec",
+                      "inverse-primary": "#8229d7",
+                      "surface-container-highest": "#35343a",
+                      "on-error-container": "#ffdad6",
+                      "surface-container": "#1f1f24",
+                      "inverse-on-surface": "#303035",
+                      "on-primary": "#480082",
+                      "outline": "#988da0",
+                      "on-secondary-fixed": "#001e2b",
+                      "on-background": "#e4e1e9",
+                      "on-secondary": "#003548",
+                      "background": "#131318",
+                      "on-tertiary-fixed-variant": "#46464f",
+                      "surface": "#131318",
+                      "on-surface-variant": "#cfc2d6",
+                      "error": "#ffb4ab",
+                      "surface-bright": "#39393e",
+                      "secondary-fixed": "#c2e8ff",
+                      "on-secondary-fixed-variant": "#004d67",
+                      "tertiary-fixed-dim": "#c7c5d0",
+                      "on-primary-container": "#faeeff",
+                      "on-error": "#690005",
+                      "tertiary-container": "#6e6d77",
+                      "on-tertiary": "#303038",
+                      "secondary-container": "#00c1fd",
+                      "text-secondary": "rgba(245, 245, 247, 0.78)",
+                      "surface-dim": "#131318",
+                      "primary-container": "#933fe8",
+                      "text-muted": "rgba(245, 245, 247, 0.60)",
+                      "surface-container-lowest": "#0e0e13",
+                      "on-tertiary-container": "#f3f0fc",
+                      "inverse-surface": "#e4e1e9",
+                      "primary-fixed": "#efdbff",
+                      "text-primary": "#F5F5F7",
+                      "primary-fixed-dim": "#dcb8ff",
+                      "outline-variant": "#4c4354",
+                      "secondary-fixed-dim": "#75d1ff",
+                      "surface-variant": "#35343a",
+                      "on-secondary-container": "#004b65",
+                      "on-surface": "#e4e1e9",
+                      "secondary": "#8fd8ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap-mobile": "64px",
+                      "section-gap-desktop": "120px",
+                      "base": "8px",
+                      "grid-gutter": "24px",
+                      "container-max-width": "1280px",
+                      "grid-margin": "24px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0F14;
+            color: #F5F5F7;
+        }
+        .radial-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(147, 63, 232, 0.15) 0%, transparent 60%);
+        }
+        .glass-card {
+            background: rgba(28, 28, 36, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 245, 247, 0.12);
+        }
+        .glass-card:hover {
+            border-color: #dcb8ff;
+            transition: border-color 0.3s ease;
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+<body class="bg-background text-on-surface antialiased font-sans relative">
+<div id="scroll-progress"></div>
+<!-- ── Page Loader ── -->
+<div id="page-loader" style="background:#0F0F14;">
+  <div class="loader-logo">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="24,4 44,14 44,34 24,44 4,34 4,14" fill="none" stroke="#dcb8ff" stroke-width="2" opacity="0.6"/>
+      <polygon points="24,10 38,18 38,30 24,38 10,30 10,18" fill="#dcb8ff" opacity="0.15"/>
+      <text x="24" y="28" text-anchor="middle" fill="#dcb8ff" font-size="14" font-weight="bold" font-family="Inter, sans-serif">N</text>
+    </svg>
+    <div class="loader-bar">
+      <div class="loader-bar-fill" style="background:#dcb8ff;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TopNavBar -->
+<div id="site-header"></div>
+
+
+<main class="relative z-10 pt-32 pb-section-gap-desktop">
+<!-- Hero Section -->
+<section data-reveal="true" class="relative px-grid-margin max-w-container-max-width mx-auto mb-section-gap-desktop">
+<div class="absolute inset-0 radial-glow -z-10"></div>
+<div class="max-w-4xl mx-auto text-center">
+<div class="inline-block px-4 py-1.5 rounded-full border border-glass-border bg-surface-container-low mb-6">
+<span class="font-label-sm text-label-sm text-secondary">E-Learning &amp; LMS Enterprise</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-tight">
+                    Especialistas en Moodle para instituciones que necesitan <span class="text-primary">estabilidad, integración y crecimiento.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-text-secondary mb-10 max-w-2xl mx-auto">
+                    Transformamos plataformas de aprendizaje en ecosistemas robustos. Diseño, arquitectura y desarrollo especializado en Moodle para operaciones críticas B2B e institucionales.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button onclick="location.href='contacto.html'" style="cursor:pointer" class="bg-primary-container text-on-primary-container font-label-sm text-label-sm px-8 py-4 rounded-DEFAULT hover:bg-inverse-primary transition-all">
+                        Solicitar diagnóstico Moodle
+                    </button>
+</div>
+</div>
+</section>
+<!-- Services Bento Grid -->
+<section data-reveal="true" class="px-grid-margin max-w-container-max-width mx-auto mb-section-gap-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter">
+<!-- Card 1: Implementación -->
+<div class="glass-card md:col-span-8 rounded-xl p-8 flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-primary mb-4" style="font-variation-settings: 'FILL' 1; font-size: 32px;">settings_suggest</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Implementación y Configuración</h3>
+<p class="font-body-md text-body-md text-text-secondary max-w-xl">
+                            Arquitectura desde cero pensada en la escalabilidad. Configuramos entornos Moodle optimizados para alto tráfico, asegurando rendimiento fluido incluso en picos de concurrencia extrema.
+                        </p>
+</div>
+</div>
+<!-- Card 2: Migración -->
+<div class="glass-card md:col-span-4 rounded-xl p-8 flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-secondary mb-4" style="font-variation-settings: 'FILL' 1; font-size: 32px;">cloud_sync</span>
+<h3 class="font-headline-sm text-headline-sm mb-4 text-on-surface">Migración y Actualización</h3>
+<p class="font-body-md text-body-md text-text-secondary">
+                            Transiciones sin fricción. Enfoque estricto en la reducción de riesgos y cero pérdida de datos durante migraciones complejas o actualizaciones de versión de núcleo.
+                        </p>
+</div>
+</div>
+<!-- Card 3: Desarrollo -->
+<div class="glass-card md:col-span-4 rounded-xl p-8 flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-primary mb-4" style="font-variation-settings: 'FILL' 1; font-size: 32px;">code_blocks</span>
+<h3 class="font-headline-sm text-headline-sm mb-4 text-on-surface">Desarrollo a medida</h3>
+<p class="font-body-md text-body-md text-text-secondary">
+                            Extendemos las capacidades nativas. Creación de plugins personalizados, bloques específicos y sistemas de reportes avanzados adaptados a tu lógica de negocio.
+                        </p>
+</div>
+</div>
+<!-- Card 4: App -->
+<div class="glass-card md:col-span-4 rounded-xl p-8 flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-secondary mb-4" style="font-variation-settings: 'FILL' 1; font-size: 32px;">install_mobile</span>
+<h3 class="font-headline-sm text-headline-sm mb-4 text-on-surface">Moodle App Personalizada</h3>
+<p class="font-body-md text-body-md text-text-secondary">
+                            Tu marca en el bolsillo de los usuarios. Personalización profunda de la aplicación móvil oficial de Moodle para iOS y Android.
+                        </p>
+</div>
+</div>
+<!-- Card 5: Integraciones -->
+<div class="glass-card md:col-span-4 rounded-xl p-8 flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-primary mb-4" style="font-variation-settings: 'FILL' 1; font-size: 32px;">api</span>
+<h3 class="font-headline-sm text-headline-sm mb-4 text-on-surface">Integraciones de alto nivel</h3>
+<p class="font-body-md text-body-md text-text-secondary">
+                            Conectividad empresarial. Sincronización perfecta con ERPs, CRMs mediante APIs REST y estándares LTI para un ecosistema unificado.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonial Section -->
+<section data-reveal="true" class="px-grid-margin max-w-container-max-width mx-auto mb-section-gap-desktop">
+<div class="glass-card rounded-xl p-10 md:p-16 border border-glass-border relative overflow-hidden">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 max-w-3xl">
+<span class="material-symbols-outlined text-primary mb-6" style="font-size: 48px; opacity: 0.5;">format_quote</span>
+<p class="font-headline-md text-headline-md text-on-surface mb-8 italic">
+                        "La estabilidad que logramos tras la refactorización de nuestro entorno Moodle fue crítica. Pasamos de caídas constantes en épocas de exámenes a una plataforma resiliente capaz de soportar miles de usuarios concurrentes."
+                    </p>
+<div>
+<div class="font-label-sm text-label-sm text-primary">Director de Tecnología B2B</div>
+<div class="font-body-md text-body-md text-text-muted">Sector Educación Superior</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section data-reveal="true" class="px-grid-margin max-w-container-max-width mx-auto">
+<div class="bg-surface-container-high rounded-xl p-12 text-center border border-glass-border">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">¿Tu plataforma actual limita tu crecimiento?</h2>
+<p class="font-body-md text-body-md text-text-secondary mb-8 max-w-2xl mx-auto">Hablemos de arquitectura, rendimiento y soluciones a medida para tu ecosistema e-learning.</p>
+<button onclick="location.href='contacto.html'" style="cursor:pointer" class="bg-primary-container text-on-primary-container font-label-sm text-label-sm px-8 py-4 rounded-DEFAULT hover:bg-inverse-primary transition-all">
+                    Solicitar diagnóstico Moodle
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<div id="site-footer"></div>
+
+    <script src="../assets/js/components.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<!-- ── Back to Top ── -->
+<button id="back-to-top" aria-label="Volver arriba">
+  <span class="material-symbols-outlined" style="font-size:20px;">arrow_upward</span>
+</button>
+</body></html>
